@@ -1,0 +1,210 @@
+---
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "../output_word") })
+title: "Crab molts for exoskeleton pilot 2021"
+output:
+  officedown::rdocx_document:
+    reference_docx: word_style_ref_01.docx
+editor_options:
+  chunk_output_type: console
+---
+
+```{r knitter-options, include = FALSE}
+# chunk header include = FALSE supresses code in the Word output
+# chunk options suppress warnings, messages and output in the Word output
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=FALSE)
+```
+
+```{r libraries}
+library(here)
+library(tidyverse)
+library(janitor)
+library(officedown)
+library(metacsv)
+library(todor)
+```
+
+## Rosario Zoea Caught in Light Trap
+
+The wild-caught zoea were collected by Kate Rovinski on 9 June, 2021 from the Swinomish Tribe's light trap stationed at Rosario Head Beach Dock (48.416585, -122.663190). The mass of zoea were held in 1L glass Nalgene jars with bubblers in a cooler and brought back to the Montlake lab at the Northwest Fisheries Science Center. Here they were sorted by Danielle Perez into morphological types, perhaps at genus or species level. Crabs that were presumed Dungeness (based on color, size, and past experience with the zoea) were separated from the mass and either put into well plates, or preserved in ethanol. A subset of presumed Pea crabs (based on their more bulbous body type and purple spines) were also separated and added to well plates, or preserved.
+
+Crabs were removed from the larger sample with a pipette and added to a well plate with a solution of Instant Ocean (salinity = 30.03 psu). Three crabs were added to each well of a 6-well plate. Total crabs added to well plates equaled 72, thirty of which were presumed Dungeness with the remaining wells filled out with presumed pea crabs. These crabs were put into chambers 6 and 7, which were temperature controlled to 10C. Twenty-six Dungeness crabs were preserved in ethanol at the beginning of the experiment, while 200 pea crabs were preserved in 5 separate Falcon tubes (also in ethanol, each tube containing 40 crabs). 
+
+Crabs were checked every weekday, mortalities were removed, and molts were preserved in ethanol. When it was possible to tell which of the three crabs in the well had molted, the live crab was also preserved in ethanol. If it was not clear which crab had molted, all three crabs remained in the well, though the molt was preserved. The zoea were also fed and transferred to new well plates with fresh, bubbled, Instant Ocean seawater roughly every three days. 
+
+At the end of the two-week experiment, on 23 June, 2021, all remaining crabs were preserved in ethanol. There two data files associated with these crabs: a daily care log and a preservation file based on the vials present in the box of crabs that had been stored in ethanol. 
+
+```{r rosaio-zoea-read-and-clean-collect-care}
+
+# Read the status key from the crab care file (first row of file)
+d_rosario_care_key <- read.csv(here("data", "crab_zoea_exoskel_rosario_carechart_2021.csv"),header = FALSE, nrows = 1)[,1] 
+
+# Read in the crab care data file data
+d_rosario_care_raw <- read_csv(here("data", "crab_zoea_exoskel_rosario_carechart_2021.csv"), skip = 3) 
+
+# Function to create new variable names for the "By" columns (person who entered data) that they includes the date
+new_name_care <- function(old_names){
+  new_names <- old_names
+  for(i in 1:length(old_names)){
+    if(str_starts(old_names[i], "By")){
+      new_names[i] <- paste("entered_by_", old_names[i+1], sep = "")
+    }
+  }
+  return(new_names)
+} 
+
+# Rename care file variables
+names(d_rosario_care_raw) <- new_name_care(names(d_rosario_care_raw))
+
+# Read clean up the crab care data frame and add a "fate" column to indicate id crab died or molted.
+d_rosario_care <- d_rosario_care_raw %>%
+  filter(if_any(everything(), ~ !is.na(.))) %>%
+  mutate(crabID = paste(crabID, startLoc, sep = "_")) %>%
+  select_if(function(x){!all(is.na(x))}) %>%
+  mutate(fate = case_when(if_any(everything(), ~ . == "D") ~ "dead",
+                          if_any(everything(), ~ . == "L") ~ "lost",
+                          if_any(everything(), ~ . == "M") ~ "molt",
+                          if_any(everything(), ~ . == "R") ~ "removed",
+                          TRUE ~ "alive_unmolted")) %>%
+  {.}
+
+# Read in the collection and experiment start data
+d_rosario_collect <- read_csv(here("data", "crab_zoea_exoskel_rosario_collection_2021.csv"), skip = 2) %>%
+  mutate(crabID = paste(crabID, startLoc, sep = "_")) %>%
+  {.}
+
+# Merge the crab care and collection files
+d_rosario <- full_join(d_rosario_care, d_rosario_collect, by = "crabID")
+```
+
+A few notes about the data summary below. In Table \@ref(tab:rosario-preserve-summary), there are 18 discarded pea crab molts, but only 16 live pea crabs were preserved (zoea + megalopae). I believe this discrepancy is due to there being more than one crab in a well at a time. If it molted from one zoea stage to the next, it wasn't possible to tell which crab molted. So only the molt, not the crab itself, was preserved.   
+
+```{r rosario-zoea-fate-summary-tab, tab.cap = "Summary of the fate of zoea from Rosario (round 1). During the experiment, zoea could 1) die before, 2) molt, in which case both the new stage zoea or megalope and the discarded exoskeleton were preserved in seperate vials, or 3) the zoea could remain alive and unmolted at the end of the experinment , in which case they were preserved. CrabType is presumed (crabs have not been IDed to species).", tab.id = "rosario-fate-summary"}
+
+d_rosario_care %>%
+  tabyl(crabType, fate) %>%
+  adorn_totals(where = c("row", "col")) %>%
+  as.data.frame()
+```
+
+```{r rosaio-zoea-read-and-clean-preserve}
+
+# Read and re-code the Rosario preservation file
+d_rosario_preservation <- read_csv(here("data", "brachyura_zoe_preservationLog_popvials_DANIELLE'S_NOTES.csv")) %>%
+  mutate(preserve_stage = case_when(preservationDate == "6/9/2021" & lifeStage == "zoea" ~ "zoea_start",
+                                preservationDate == "6/23/2021"  & lifeStage == "zoea" ~ "zoea_end_unmolted",
+                                lifeStage == "zoea" ~ "zoea_live_post_molt",
+                                lifeStage == "megalopae" ~ "meg_live_post_molt",
+                                lifeStage == "Molt" | lifeStage == "zoeaMOLT" ~ "discard_molt",
+                                TRUE ~ NA_character_)) %>%
+  mutate(crabType = case_when(species == "brachyura_ssp." ~ "Pea",
+                              species %in% c("C.magister", "C. magister") ~ "Dungeness",
+                              TRUE ~ NA_character_)) %>%
+  {.}
+```
+
+
+```{r rosario-zoea-preserve-summary, tab.cap = "Preserve sample summary based on preservation csv file. Zoea_start are zoea preserved from the coolers at the beginnig of the experiment - they were never in chambers. Zoea_live and meg_live are crabs preseverd after they molted. It was assumed that the crabs marked Instar in the oringal preservation file molted to a later stage zoea and crabs marked Megalopae molted to megalopae. Discard_molts were the discarded exoskeletons after molting (marked either Molt or zoeaMOLT in the data sheet). Zoea_end are crabs that were alive at the end of the experiment but never molted.", tab.id = "rosario-preserve-summary"}
+
+s_rosario_preservation <- d_rosario_preservation %>%
+  group_by(crabType,preserve_stage) %>%
+  summarise(sum(n_individuals.per.Vial)) %>%
+  arrange(crabType, match(preserve_stage, 
+                          c("zoea_start", "zoea_live", "meg_live", 
+                            "discard_molt", "zoea_end"))) %>%
+  rename("total" = "sum(n_individuals.per.Vial)") %>%
+  as.data.frame()
+s_rosario_preservation
+```
+
+
+## Dungeness Megalopae Caught During Mukilteo Krill Tow
+
+On 16/17 June 2021, Paul McElhany, Mike Maher, and Kate Rovinski deployed the R/V Minnow from the Mukilteo, WA dock for a krill collection pilot experiment. Tows were conducted between 10:00 pm on 16 June, 2021 and 12:40 am on 17 June, 2021. The tows varied in speed from 2-3 knots and at depths of 80-160 feet. Though hunting for krill, they incidentally caught Dungeness megalopae as well, which were brought back in the coolers to the NWFSC Montlake lab. The megalopae were sorted in the coolers between 1:00-3:00 am on 17 June, 2021 and put in 1 L glass Nalgene jars and left in 10 C chambers overnight with air bubbling.  The following morning, Danielle Perez sorted 46 Dungeness megalopae into 6-well plates and distributed them among chambers 5 and 6. 
+
+Over the course of the next month, the crabs were checked regularly for molting and mortalities. Mortalities were discarded, and megalopae molts were recorded and preserved in 95% ethanol. The freshly-molted juvenile crab was also preserved in 95% ethanol. The crabs received a new seawater change and were fed artemia intermittently. On 14 July, 2021, the experiment ended and all crabs were preserved. 
+
+A note about the data summary below. In Table \@ref(tab:muk-care-summary), there a total of 36 juveniles that molted but in Table \@ref(tab:muk-preserve-summary), there are only 35 juveniles preserved. I have not reconciled this discrepancy, so I'm unsure as to the fate of this missing crab. Also in Table \@ref(tab:muk-care-summary), there are 10 crabs marked as "unmolted" but only 5 megalopae in Table \@ref(tab:muk-preserve-summary). This is because 5 megalopae died during the course of the experiment. 
+
+```{r muk-megas-care-summary, tab.cap = "Preserve sample summary based on compiled care log csv files. A value of 0 indicates the megalopae didn't molt by the end of experimentt. A value of 1 indicates they molted from megalopae to juvenile instar during the experiment. ", tab.id = "muk-care-summary"}
+
+# Summary table based on transfer sheet file
+d_muk_meg_NEW_care <- read_csv(here("data", "WellEventData.csv"))
+s_muk_meg_NEW_care <- d_muk_meg_NEW_care %>%
+  group_by(crabID) %>%
+  summarise(molted = sum(molt)) %>%
+  tabyl(molted) %>%
+  adorn_totals() %>%
+  as.data.frame() %>%
+  {.}
+
+s_muk_meg_NEW_care
+```
+
+```{r muk-megas-preserve-summary, tab.cap = "Preserve sample summary based on preservation file. ", tab.id = "muk-preserve-summary"}
+# Read muk meg preservation file
+d_muk_meg_preservation <- read_csv(here("data", "dng_meg_exoskel_muk_net_preservation_2021_DANIELLE'S CUT.csv")) %>%
+  filter(!is.na(lifeStage))
+
+# Summarize life stages preserved
+s_muk_meg_preservation <- d_muk_meg_preservation %>%
+  tabyl(lifeStage) %>%
+  adorn_totals()
+s_muk_meg_preservation
+```
+
+## Coronet Bay Megalopae caught in Light Trap
+
+No zoea were collected/found in Swinomish Light Traps on 8 July, 2021 at any location (Cornet Bay, Rosario Beach, or Anacortes, Fisherman’s Wharf). However, Dungeness megalopae caught in the Coronet Bay trap were collected and brought back to the NWFSC lab for this pilot study. These megalopae molts and resulting J1 instars were preserved using two different methods. Half were flash frozen while the other half preserved in 95% Ethanol.
+
+Megalopae were reared in environmental temperature control chambers for 14 days.A wild cohort group (30 individuals) was preserved in both ethanol (15 individuals) and another (15 individuals) in a -80F freezer on “Day 00”. The remaining megalopae (30 individuals per chamber) were checked daily Monday through Friday. Both molts and whole instar juveniles (J1 stage) were preserved in an alternating fashion between ethanol preservation in a pop-top vial or brought to the negative 80 freezer. They were fed twice over the course of the experiment and afforded a water exchange every 96 hours. This schedule flexed around weekends.
+
+```{r}
+d_coronet_care_raw <- read_csv(here("data", "dng_meg_exoskel_coronet_carechart_2021.csv"), skip = 3)
+
+# Rename care file variables
+names(d_coronet_care_raw) <- new_name_care(names(d_coronet_care_raw))
+
+
+d_coronet_care <- d_coronet_care_raw %>%
+  filter(if_any(everything(), ~ !is.na(.))) %>%
+  filter(str_starts(crabID, "CH")) %>%
+   select_if(function(x){!all(is.na(x))}) %>%
+   select(crabID, starts_with(c("6", "7"))) %>%
+  mutate(fate = NA_character_,
+    fate = if_else(if_any(everything(), ~ str_detect(., "J1_frozen")), "j1_frozen", fate),
+    fate = if_else(if_any(everything(), ~ str_detect(., fixed("J1_EtOH", ignore_case = TRUE))),  "j1_etoh", fate),
+    fate = if_else(if_any(everything(), ~ . == "D"),  "dead", fate),
+    fate = if_else(is.na(fate), "alive_unmolted", fate)) %>%
+  mutate(preserved_juv = case_when(str_detect(fate, "frozen") ~ "frozen",
+                                   str_detect(fate, "etoh") ~ "etoh",
+                                   TRUE ~ NA_character_)) %>%
+  mutate(preserved_discard = if_else(!is.na(preserved_juv) & 
+                                       !str_detect(`7/12`, "dissolved"),
+                                     preserved_juv, NA_character_)) %>%
+  mutate(preserved_meg_end = if_else(fate == "alive_unmolted", TRUE, FALSE)) %>%
+  mutate(preserved = case_when(!is.na(preserved_juv) & !is.na(preserved_discard) ~
+                               paste("both_juv_and_discard_", preserved_juv, sep = "" ),
+                               !is.na(preserved_juv) & is.na(preserved_discard) ~
+                                paste("juv_only_", preserved_juv, sep = "" ),
+                               preserved_meg_end ~"meg_end",
+                               TRUE ~ "nothing")) %>%
+  {.}
+```
+
+```{r coronet-care-summary, tab.cap = "Preserve sample summary based on care log. Both juvenile instars and their corresponding molts were either flash-frozen or preserved in ethanol; unless the molt was so dissolved it was not worth preserving. Crabs that had not molted from megalopae into juveniles by the end of the experiment were discarded. ", tab.id = "care-summary"}
+d_coronet_care %>%
+  tabyl(fate, preserved) %>%
+   adorn_totals(where = c("row", "col")) %>%
+  as.data.frame()
+
+```
+
+```{r}
+d_coronet_preservation <- read_csv(here("data", "dng_meg_exoskel_coronet_preservation_2021_with_meta.csv"), skip = 44)
+
+s_coronet_preservation <- d_coronet_preservation %>%
+  tabyl(preservationMaterial, vial) %>%
+  adorn_totals(where = c("row", "col")) %>%
+  as.data.frame()
+```
