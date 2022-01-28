@@ -1,0 +1,79 @@
+D=Dead M=Molt L=Lost R=Removed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,(Only Changing Water Monday or Tuesday/ Friday),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,0,,1,,2,,3,,4,,5,,6,,7,,8,,9,,10,,11,,12,,13,,14,
+crabID,crabType,startLoc,By,9-Jun,By,10-Jun,By,11-Jun,By,12-Jun,By,13-Jun,By,14-Jun,By,15-Jun,By,16-Jun,By,17-Jun,By,18-Jun,By,19-Jun,By,20-Jun,By,21-Jun,By,22-Jun,By,23-Jun,Notes
+CH06_2021_06_09_SEQ01,Dungeness,73_W1,DP,,DP,,MM,D,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed all on 6/10
+CH06_2021_06_09_SEQ02,Dungeness,73_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,D,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Moved all to plate 28 on 6/14
+CH06_2021_06_09_SEQ03,Dungeness,73_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ01,Dungeness,73_W2,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed all on 6/15
+CH06_2021_06_09_SEQ02,Dungeness,73_W2,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed and moved all to plate 52 on 6/18
+CH06_2021_06_09_SEQ03,Dungeness,73_W2,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ01,Dungeness,73_W3,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed and moved all to plate 47 on 6/22
+CH06_2021_06_09_SEQ02,Dungeness,73_W3,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Preserved remaining crabs in ethanol on 6/23
+CH06_2021_06_09_SEQ03,Dungeness,73_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,D,DP,,Not checked,,,,DP,,DP,,DP,,Combined with Dungness (?) zoea in plate 57
+CH06_2021_06_09_SEQ01,Dungeness,73_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,D,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ02,Dungeness,73_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ03,Dungeness,73_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ01,Dungeness,73_W5,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ02,Dungeness,73_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,DP,,
+CH06_2021_06_09_SEQ03,Dungeness,73_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ01,Dungeness,73_W6,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ02,Dungeness,73_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,D,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ03,Dungeness,73_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,D,DP,,DP,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+CH06_2021_06_09_SEQ01,Pea,139_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,DP,,Fed all on 6/10
+CH06_2021_06_09_SEQ02,Pea,139_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Moved all to plate 57 on 6/14
+CH06_2021_06_09_SEQ03,Pea,139_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed all on 6/15
+CH06_2021_06_09_SEQ01,Pea,139_W2,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,M,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ02,Pea,139_W2,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,DP,,"Molt fell apart over weekend, not a great sample"
+CH06_2021_06_09_SEQ03,Pea,139_W2,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ01,Pea,139_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed and moved all to plate 139 on 6/18
+CH06_2021_06_09_SEQ02,Pea,139_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed and moved all to plate 28 on 6/22
+CH06_2021_06_09_SEQ03,Pea,139_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Preserved remaining crabs in ethanol on 6/23
+CH06_2021_06_09_SEQ01,Pea,139_W4,DP,,DP,,MM,,Not checked,,,,DP,M,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,All in vial #1 of pea crabs
+CH06_2021_06_09_SEQ02,Pea,139_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,DP,,
+CH06_2021_06_09_SEQ03,Pea,139_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,D,DP,,DP,,
+CH06_2021_06_09_SEQ01,Pea,139_W5,DP,,DP,,MM,,Not checked,,,,DP,M,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ02,Pea,139_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,DP,,"Molt fell apart over weekend, not a great sample"
+CH06_2021_06_09_SEQ03,Pea,139_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ01,Pea,139_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,DP,,
+CH06_2021_06_09_SEQ02,Pea,139_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH06_2021_06_09_SEQ03,Pea,139_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+CH07_2021_06_09_SEQ01,Dungeness,137_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,D,DP,,Not checked,,,,DP,,DP,,DP,,Fed all on 6/10
+CH07_2021_06_09_SEQ02,Dungeness,137_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,D,Not checked,,,,DP,,DP,,DP,,Moved all to plate 47 on 6/14
+CH07_2021_06_09_SEQ03,Dungeness,137_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,DP,,"Molt fell apart over weekend, not a great sample"
+CH07_2021_06_09_SEQ01,Dungeness,137_W2,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed all on 6/15
+CH07_2021_06_09_SEQ02,Dungeness,137_W2,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed and moved all to plate 48 on 6/18
+CH07_2021_06_09_SEQ03,Dungeness,137_W2,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH07_2021_06_09_SEQ01,Dungeness,137_W3,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Fed and moved all to plate 57 on 6/22
+CH07_2021_06_09_SEQ02,Dungeness,137_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,D,Not checked,,,,DP,,DP,,DP,,Preserved remaining in ethanol on 6/23
+CH07_2021_06_09_SEQ03,Dungeness,137_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Combined with Dungness (?) zoea in plate 47
+CH07_2021_06_09_SEQ01,Dungeness,137_W4,DP,,DP,,MM,,Not checked,,,,DP,D,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH07_2021_06_09_SEQ02,Dungeness,137_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,D,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH07_2021_06_09_SEQ03,Dungeness,137_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH07_2021_06_09_SEQ01,Pea,137_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,M,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,Preserved remaining in ethanol on 6/23
+CH07_2021_06_09_SEQ02,Pea,137_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,All in vial #2 of pea crabs
+CH07_2021_06_09_SEQ03,Pea,137_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH07_2021_06_09_SEQ01,Pea,137_W6,DP,,DP,,MM,,Not checked,,,,DP,M,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH07_2021_06_09_SEQ02,Pea,137_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+CH07_2021_06_09_SEQ03,Pea,137_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,DP,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+CH07_2021_06_09_SEQ01,Pea,52_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,M,Not checked,,,,DP,,DP,,,,Fed all on 6/10
+CH07_2021_06_09_SEQ02,Pea,52_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,,,Moved to plate 13 on 6/14
+CH07_2021_06_09_SEQ03,Pea,52_W1,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,Fed all on 6/15
+CH07_2021_06_09_SEQ01,Pea,52_W2,DP,,DP,,MM,,Not checked,,,,DP,M,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,Fed all on 6/15
+CH07_2021_06_09_SEQ02,Pea,52_W2,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,,,Fed and moved all to plate 55 on 6/18
+CH07_2021_06_09_SEQ03,Pea,52_W2,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,Fed and moved all to plate 13 on 6/22
+CH07_2021_06_09_SEQ01,Pea,52_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,M,DP,,,,"Not sure which one molted, so only preserved molt"
+CH07_2021_06_09_SEQ02,Pea,52_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,Preserved remaining crabs in ethanol on 6/23
+CH07_2021_06_09_SEQ03,Pea,52_W3,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,Crabs from wells 1 and 2 and one crab from well 3 in vial #1 of pea crabs. 
+CH07_2021_06_09_SEQ01,Pea,52_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,M,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,2/3 crabs from well 3 and crabs from wells 4-6 in vial #2
+CH07_2021_06_09_SEQ02,Pea,52_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,M,Not checked,,,,DP,,DP,,,,
+CH07_2021_06_09_SEQ03,Pea,52_W4,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,
+CH07_2021_06_09_SEQ01,Pea,52_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,M,,,"Not sure which one molted, so only preserved molt"
+CH07_2021_06_09_SEQ02,Pea,52_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,
+CH07_2021_06_09_SEQ03,Pea,52_W5,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,
+CH07_2021_06_09_SEQ01,Pea,52_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,D,DP,,,,
+CH07_2021_06_09_SEQ02,Pea,52_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,
+CH07_2021_06_09_SEQ03,Pea,52_W6,DP,,DP,,MM,,Not checked,,,,DP,,DP,,DP,,DP,,DP,,Not checked,,,,DP,,DP,,,,
